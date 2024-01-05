@@ -2,7 +2,9 @@ import json
 
 
 def test_create_summary(test_app_with_db):
-    response = test_app_with_db.post("/summaries/", data=json.dumps({"url": "http://foo.bar"}))
+    response = test_app_with_db.post(
+        "/summaries/", data=json.dumps({"url": "http://foo.bar"})
+    )
 
     assert response.status_code == 201
     assert response.json()["url"] == "http://foo.bar"
@@ -17,14 +19,16 @@ def test_create_summary_invalid_json(test_app_with_db):
             {
                 "loc": ["body", "url"],
                 "msg": "field required",
-                "type": "value_error.missing"
+                "type": "value_error.missing",
             }
         ]
     }
 
 
 def test_read_summary(test_app_with_db):
-    response = test_app_with_db.post("/summaries/", data=json.dumps({"url": "http://foo2.bar"}))
+    response = test_app_with_db.post(
+        "/summaries/", data=json.dumps({"url": "http://foo2.bar"})
+    )
     summary_id = response.json()["id"]
 
     response = test_app_with_db.get(f"/summaries/{summary_id}/")
@@ -44,7 +48,9 @@ def test_read_summary_incorrect_id(test_app_with_db):
 
 
 def test_read_all_summary(test_app_with_db):
-    response = test_app_with_db.post("/summaries/", data=json.dumps({"url": "http://foo_all.bar"}))
+    response = test_app_with_db.post(
+        "/summaries/", data=json.dumps({"url": "http://foo_all.bar"})
+    )
     summary_id = response.json()["id"]
 
     response = test_app_with_db.get("/summaries/")
