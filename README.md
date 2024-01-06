@@ -1,7 +1,7 @@
 # Test-Driven Development with FastAPI and Docker
 
 # Check out code:
-[Repository](https://github.com/cephydex/fastapi-kafka-multi-topic)
+[Repository](https://github.com/cephydex/fastapi-tdd1)
 
 # How to use this repository
 
