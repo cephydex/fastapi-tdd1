@@ -4,7 +4,7 @@ name: Continuous Integration and Delivery
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 env:
   IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]')/summarizer
